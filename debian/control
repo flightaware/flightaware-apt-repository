@@ -1,0 +1,21 @@
+Source: flightaware-apt-repository
+Section: embedded
+Priority: extra
+Maintainer: FlightAware Developers <adsb-devs@flightaware.com>
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.5.1
+Homepage: https://github.com/flightaware/flightaware-apt-repository
+
+Package: flightaware-apt-repository
+Architecture: all
+Description: Installs the FlightAware APT repository configuration for 
+  PiAware packages
+
+Package: flightaware-apt-repository-testing
+Architecture: all
+Depends: flightaware-apt-repository
+Description: Installs the FlightAware APT repository for testing purposes.
+ An alternative repository used during development. Only really of interest
+ to FlightAware developers for preparing new sdcard images for testing.
+
+
