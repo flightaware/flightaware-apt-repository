@@ -25,4 +25,13 @@ node(label: 'raspberrypi') {
         }
         archiveArtifacts artifacts: "${resultsdir}/*.deb", fingerprint: true
     }
+
+    def dists = ["stretch", "buster", "bullseye"]
+
+    for (int i = 0; i < dists.size(); ++i) {
+        def dist = dists[i]
+        stage("Test install on ${dist}") {
+            sh "BRANCH=${env.BRANCH_NAME} /build/pi-builder/scripts/validate-packages.sh ${dist} ${resultsdir}/flightaware-apt-repository_*.deb ${resultsdir}/flightaware-apt-repository-testing_*.deb"
+        }
+    }
 }
