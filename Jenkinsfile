@@ -34,4 +34,12 @@ node(label: 'raspberrypi') {
             sh "BRANCH=${env.BRANCH_NAME} /build/pi-builder/scripts/validate-packages.sh ${dist} ${resultsdir}/flightaware-apt-repository_*.deb ${resultsdir}/flightaware-apt-repository-testing_*.deb"
         }
     }
+
+    // Deploy to all distribution repositories
+    stage("Deploy to internal repository") {
+        for (int i = 0; i<dists.size(); ++i) {
+            def dist = dists[i]
+            sh "/build/pi-builder/scripts/deploy.sh -distribution ${dist} -branch ${env.BRANCH_NAME} ${resultsdir}/*.deb"
+        }
+    }
 }
