@@ -26,7 +26,7 @@ node(label: 'raspberrypi') {
         archiveArtifacts artifacts: "${resultsdir}/*.deb", fingerprint: true
     }
 
-    def dists = ["stretch", "buster", "bullseye"]
+    def dists = ["stretch", "bullseye"]
 
     for (int i = 0; i < dists.size(); ++i) {
         def dist = dists[i]
