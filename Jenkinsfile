@@ -26,7 +26,7 @@ node(label: 'raspberrypi') {
         archiveArtifacts artifacts: "${resultsdir}/*.deb", fingerprint: true
     }
 
-    def dists = ["stretch", "bullseye"]
+    def dists = ["stretch", "buster", "bullseye"]
 
     for (int i = 0; i < dists.size(); ++i) {
         def dist = dists[i]
@@ -37,7 +37,7 @@ node(label: 'raspberrypi') {
 
     // Deploy to all distribution repositories
     stage("Deploy to internal repository") {
-        for (int i = 0; i<dists.size(); ++i) {
+        for (int i = 0; i < dists.size(); ++i) {
             def dist = dists[i]
             sh "/build/pi-builder/scripts/deploy.sh -distribution ${dist} -branch ${env.BRANCH_NAME} ${resultsdir}/*.deb"
         }
