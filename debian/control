@@ -8,6 +8,8 @@ Homepage: https://github.com/flightaware/flightaware-apt-repository
 
 Package: flightaware-apt-repository
 Architecture: all
+Conflicts: piaware-repository
+Replaces: piaware-repository
 Description: Installs the FlightAware APT repository configuration for 
   PiAware packages
 
