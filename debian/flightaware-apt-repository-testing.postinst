@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for flightaware-apt-repository
+# postinst script for flightaware-apt-repository-testing
 #
 # see: dh_installdeb(1)
 
