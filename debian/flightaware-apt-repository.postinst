@@ -50,10 +50,9 @@ case "$1" in
                 ;;
         esac
 
-        # Check architecture
-        arch=$( uname -m )
+        arch=$( dpkg --print-architecture )
         case $arch in
-            armv6l|armv7l)
+            armhf)
                 ;;
             *)
                 echo "Unsupported machine architecture: $arch"
