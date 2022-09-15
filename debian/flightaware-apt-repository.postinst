@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # postinst script for flightaware-apt-repository
 #
 # see: dh_installdeb(1)
@@ -50,15 +50,25 @@ case "$1" in
                 ;;
         esac
 
-        arch=$( dpkg --print-architecture )
-        case $arch in
-            armhf)
-                ;;
-            *)
-                echo "Unsupported machine architecture: $arch"
-                exit 1
-                ;;
-        esac
+        # Get machine architecture and foreign architectures
+        archs+=$( dpkg --print-architecture )
+        for arch in $( dpkg --print-foreign-architectures )
+        do
+            archs+=( $arch )
+        done
+
+        # Ensure we have a apt repository for them
+        arch_supported="false"
+        for arch in "${archs[@]}"
+        do
+            if [[ $arch == "armhf" ]]; then
+                arch_supported="true"
+                break
+            fi
+        done
+
+        # Bail if not
+        [[ $arch_supported == "false" ]] && echo "No apt repository available for given architectures" && exit 1
 
         # Cleanup deprecated sources.list from piaware-repository if present
         listfile="/etc/apt/sources.list.d/piaware-$VERSION_CODENAME.list"

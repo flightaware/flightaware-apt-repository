@@ -50,18 +50,6 @@ case "$1" in
                 ;;
         esac
 
-        # Check architecture
-        arch=$( dpkg --print-architecture )
-        case $arch in
-            armhf)
-                ;;
-
-            *)
-                echo "Unsupported machine architecture: $arch"
-                exit 1
-                ;;
-        esac
-
         # Cleanup deprecated sources.list from piaware-repository if present
         listfile="/etc/apt/sources.list.d/piaware-$VERSION_CODENAME-testing.list"
         rm_conffile piaware-repository-testing $listfile
