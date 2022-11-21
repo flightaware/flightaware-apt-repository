@@ -1,5 +1,5 @@
 flightaware-apt-repository (1.0) UNRELEASED; urgency=medium
 
-  * In development
+  * Initial release configures apt sources list automatically based on current OS
 
- -- Eric Tran <eric.tran@flightaware.com>  Tue, 30 Aug 2022 15:42:43 -0600
+ -- Eric Tran <eric.tran@flightaware.com>  Mon, 21 Nov 2022 13:18:43 -0600
