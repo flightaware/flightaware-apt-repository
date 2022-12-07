@@ -40,15 +40,31 @@ case "$1" in
     configure)
 
         # Check OS version
-        . '/etc/os-release'
-        case $VERSION_CODENAME in
-            stretch|buster|bullseye)
-                ;;
-            *)
-                echo "Unsupported OS version: $VERSION_CODENAME"
-                exit 1
-                ;;
-        esac
+        if [ -x "$(command -v lsb_release)" ]; then
+            VERSION_CODENAME="$(lsb_release -c -s)"
+        fi
+
+        if [ -z $VERSION_CODENAME ]; then
+            # Check /etc/os-release
+            . '/etc/os-release'
+
+            case $VERSION_ID in
+                "9")
+                    VERSION_CODENAME="stretch"
+                    ;;
+                "10")
+                    VERSION_CODENAME="buster"
+                    ;;
+                "11")
+                    VERSION_CODENAME="bullseye"
+                    ;;
+                *)
+                    echo "Unsupported OS version"
+                    echo "FlightAware maintains APT repositories for Debian Bullseye, Buster, and Stretch"
+                    exit 1
+                    ;;
+            esac
+        fi
 
         # Get machine architecture and foreign architectures
         archs+=$( dpkg --print-architecture )
