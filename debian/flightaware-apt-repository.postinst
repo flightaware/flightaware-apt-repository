@@ -58,9 +58,12 @@ case "$1" in
                 "11")
                     VERSION_CODENAME="bullseye"
                     ;;
+                "12")
+                    VERSION_CODENAME="bookworm"
+                    ;;                    
                 *)
                     echo "Unsupported OS version"
-                    echo "FlightAware maintains APT repositories for Debian Bullseye, Buster, and Stretch"
+                    echo "FlightAware maintains APT repositories for Debian Bookworm, Bullseye, Buster, and Stretch"
                     exit 1
                     ;;
             esac
