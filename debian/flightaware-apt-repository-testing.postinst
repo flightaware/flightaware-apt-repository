@@ -42,7 +42,7 @@ case "$1" in
         # Check OS version
         . '/etc/os-release'
         case $VERSION_CODENAME in
-            stretch|buster|bullseye)
+            stretch|buster|bullseye|bookworm)
                 ;;
             *)
                 echo "Unsupported OS version: $VERSION_CODENAME"
