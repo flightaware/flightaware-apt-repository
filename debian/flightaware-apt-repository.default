@@ -1,0 +1,9 @@
+# This file controls the behaviour of the flightaware-apt-repository package.
+# Run "dpkg-reconfigure flightaware-apt-repository" after making changes.
+
+# Should we create/update a sources.list file?
+ENABLED=yes
+
+# Should we use the staging/testing repository, not the main repository?
+# (only of interest to developers)
+USE_TESTING_REPO=no

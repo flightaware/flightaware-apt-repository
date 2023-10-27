@@ -1,10 +1,22 @@
-flightaware-apt-repository (1.1) UNRELEASED; urgency=medium
+flightaware-apt-repository (1.2~dev) UNRELEASED; urgency=medium
+
+  * Remove the separate flightaware-apt-repository-testing package
+  * Add a configuration file, /etc/default/flightaware-apt-repository
+  * Regenerate the sources.list file when reconfigured, even if it already exists
+  * If our sources.list was renamed with a .disabled suffix, don't regenerate it
+  * Move the FA keyring from /etc/apt/trusted.gpg.d to /usr/share/keyrings
+  * Explicitly enable use of the FA keyring only for the FA repository
+  * If the target distribution appears to be unsupported, warn but continue anyway
+
+ -- Oliver Jowett <oliver.jowett@flightaware.com>  Fri, 27 Oct 2023 14:38:57 +0800
+
+flightaware-apt-repository (1.1) stable; urgency=medium
 
   * Detect OS version in a more reliable way since VERSION_CODENAME is not present on Stretch
 
  -- Eric Tran <eric.tran@flightaware.com>  Wed, 07 Dec 2022 13:17:43 -0600
 
-flightaware-apt-repository (1.0) UNRELEASED; urgency=medium
+flightaware-apt-repository (1.0) stable; urgency=medium
 
   * Initial release configures apt sources list automatically based on current OS
 

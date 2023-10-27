@@ -8,18 +8,7 @@ Homepage: https://github.com/flightaware/flightaware-apt-repository
 
 Package: flightaware-apt-repository
 Architecture: all
-Conflicts: piaware-repository
-Replaces: piaware-repository
+Conflicts: piaware-repository, piaware-repository-testing, flightaware-apt-repository-testing
+Replaces: piaware-repository, piaware-repository-testing, flightaware-apt-repository-testing
 Description: Installs the FlightAware APT repository configuration for 
   PiAware packages
-
-Package: flightaware-apt-repository-testing
-Architecture: all
-Depends: flightaware-apt-repository
-Conflicts: piaware-repository-testing
-Replaces: piaware-repository-testing
-Description: Installs the FlightAware APT repository for testing purposes.
- An alternative repository used during development. Only really of interest
- to FlightAware developers for preparing new sdcard images for testing.
-
-
