@@ -21,7 +21,7 @@ node(label: 'raspberrypi') {
         sh "rm -fr ${resultsdir}"
         sh "mkdir -p ${resultsdir}"
         dir(srcdir) {
-            sh "BRANCH=${env.BRANCH_NAME} pdebuild --use-pdebuild-internal --debbuildopts -b --buildresult ${WORKSPACE}/${resultsdir}"
+            sh "DIST=buster BRANCH=${env.BRANCH_NAME} pdebuild --use-pdebuild-internal --debbuildopts -b --buildresult ${WORKSPACE}/${resultsdir}"
         }
         archiveArtifacts artifacts: "${resultsdir}/*.deb", fingerprint: true
     }
