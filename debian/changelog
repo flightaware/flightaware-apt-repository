@@ -1,4 +1,4 @@
-flightaware-apt-repository (1.2~dev) UNRELEASED; urgency=medium
+flightaware-apt-repository (1.2) stable; urgency=medium
 
   * Remove the separate flightaware-apt-repository-testing package
   * Add a configuration file, /etc/default/flightaware-apt-repository
@@ -8,7 +8,7 @@ flightaware-apt-repository (1.2~dev) UNRELEASED; urgency=medium
   * Explicitly enable use of the FA keyring only for the FA repository
   * If the target distribution appears to be unsupported, warn but continue anyway
 
- -- Oliver Jowett <oliver.jowett@flightaware.com>  Fri, 27 Oct 2023 14:38:57 +0800
+ -- Oliver Jowett <oliver.jowett@flightaware.com>  Mon, 06 Nov 2023 21:38:09 +0800
 
 flightaware-apt-repository (1.1) stable; urgency=medium
 
