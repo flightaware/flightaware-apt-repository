@@ -94,9 +94,9 @@ update_config () {
 
     if [ "$USE_TESTING_REPO" = "yes" ]
     then
-        url="http://apt.flightaware.com/piaware/staging"
+        url="http://apt.svc.flightaware.com/piaware/staging"
     else
-        url="http://apt.flightaware.com/piaware/release"
+        url="http://apt.svc.flightaware.com/piaware/release"
     fi
 
     # (re)generate flightaware.sources
