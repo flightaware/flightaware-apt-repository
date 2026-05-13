@@ -1,3 +1,13 @@
+flightaware-apt-repository (1.3) UNRELEASED; urgency=medium
+
+  * Update the keyring to use a freshly-issued dedicted ed25519 signing subkey
+  * Update the repository location to use apt.flightaware.com
+  * Update the generated sources.list.d file to be in deb822 format
+  * Rename the generated sources.list.d file to flightaware.sources
+  * Add trixie to the list of supported distributions; remove buster
+
+ -- Oliver Jowett <oliver.jowett@flightaware.com>  Mon, 04 May 2026 20:02:53 +0800
+
 flightaware-apt-repository (1.2) stable; urgency=medium
 
   * Remove the separate flightaware-apt-repository-testing package

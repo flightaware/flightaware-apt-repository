@@ -2,7 +2,7 @@ Source: flightaware-apt-repository
 Section: embedded
 Priority: extra
 Maintainer: FlightAware Developers <adsb-devs@flightaware.com>
-Build-Depends: debhelper (>= 10)
+Build-Depends: debhelper-compat (= 13)
 Standards-Version: 4.5.1
 Homepage: https://github.com/flightaware/flightaware-apt-repository
 
