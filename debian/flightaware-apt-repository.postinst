@@ -78,14 +78,24 @@ update_config () {
     fi
 
     supported=false
-    for arch in $(dpkg --print-architecture) $(dpkg --print-foreign-architectures)
+    allarch="$(dpkg --print-architecture) $(dpkg --print-foreign-architectures)"
+    pkgarch=""
+    for arch in $allarch
     do
+        case "$arch" in
+            armhf|arm64) pkgarch="$arch $pkgarch" ;;
+        esac
+
         case "$codename:$arch" in
-            bullseye:armhf|bullseye:arm64) supported=true; break ;;
-            bookworm:armhf|bookworm:arm64) supported=true; break ;;
-            trixie:armhf|trixie:arm64) supported=true; break ;;
+            bullseye:armhf|bullseye:arm64) supported=true; ;;
+            bookworm:armhf|bookworm:arm64) supported=true; ;;
+            trixie:armhf|trixie:arm64) supported=true; ;;
         esac
     done
+
+    # if we didn't recognize any architectures, default to all the
+    # system architectures; it probably won't work, but..
+    pkgarch="${pkgarch:-$allarch}"
 
     if ! $supported
     then
@@ -114,7 +124,7 @@ Types: deb
 URIs: ${url}
 Suites: ${codename}
 Components: piaware
-Architectures: armhf arm64
+Architectures: ${pkgarch}
 Signed-By: /usr/share/keyrings/flightaware-archive-keyring.gpg
 
 EOF
